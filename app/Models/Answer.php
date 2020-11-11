@@ -13,4 +13,8 @@ class Answer extends Model
     public function exam() {
         return $this->belongsTo(Exam::class);
     }
+
+    public function responses() {
+        return $this->hasMany(AssessmentResponse::class);
+    }
 }

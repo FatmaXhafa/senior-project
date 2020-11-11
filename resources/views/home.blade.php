@@ -17,6 +17,28 @@
                     <a href="/exams/create" class="btn btn-dark">Create New Exam</a>
                 </div>
             </div>
+            <div class="card mt-4">
+                <div class="card-header">My Exams</div>
+
+                <div class="card-body">
+                   <ul class="list-group">
+                        @foreach($exams as $exam)
+                            <li class="list-group-item">
+                                <a href="{{ $exam->path() }}"> {{ $exam->title }}</a>
+
+                                <div class="mt-2">
+                                    <small class="font-weight-bold">Send URL to students</small>
+                                    <p>
+                                        <a href="{{ $exam->publicPath()}}">
+                                        {{ $exam->publicPath()}}
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                        @endforeach
+                   </ul>                  
+                </div>
+            </div> 
         </div>
     </div>
 </div>

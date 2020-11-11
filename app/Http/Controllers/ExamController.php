@@ -32,6 +32,7 @@ class ExamController extends Controller
 
     public function show(\App\Models\Exam $exam) {
 
+        $exam->load('questions.answers.responses');
         return view('exam.show', compact('exam'));
     }
 }

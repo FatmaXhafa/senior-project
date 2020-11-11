@@ -24,5 +24,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/exams/create', 'App\Http\Controllers\ExamController@create');
 Route::post('/exams', 'App\Http\Controllers\ExamController@store');
 Route::get('/exams/{exam}', 'App\Http\Controllers\ExamController@show');
+
 Route::get('/exams/{exam}/questions/create', 'App\Http\Controllers\QuestionController@create');
 Route::post('/exams/{exam}/questions', 'App\Http\Controllers\QuestionController@store');
+Route::delete('/exams/{exam}/questions/{question}', 'App\Http\Controllers\QuestionController@destroy');
+
+Route::get('/assessments/{exam}-{slug}', 'App\Http\Controllers\AssessmentController@show');
+Route::post('/assessments/{exam}-{slug}', 'App\Http\Controllers\AssessmentController@store');
