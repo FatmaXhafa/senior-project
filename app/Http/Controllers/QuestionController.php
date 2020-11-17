@@ -26,6 +26,7 @@ class QuestionController extends Controller
     }
 
     public function destroy(Exam $exam, Question $question) {
+        
         $question->answers()->delete();
         $question->delete();
 

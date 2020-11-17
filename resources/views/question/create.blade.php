@@ -26,14 +26,13 @@
                         <div class="form-group">
                             <fieldset>
                                 <legend>Choices</legend>
-                                <small id="choicesHelp" class="form-text text-muted">Different answer choices.</small>
                                 <div>                                   
                                     <div class="form-group">
-                                        <label for="answer1">Choice 1</label>
+                                        <label for="answer1">Choice 1 - The correct one, used for validation</label>
                                         <input name = "answers[][answer]" type="text" class="form-control" 
                                                value="{{ old('answers.0.answer') }}"
                                                id="answer1" aria-describedby="answer1" placeholder="Enter answer choice 1.">
-                                        <small id="answer1Help" class="form-text text-muted">Enter choice 1.</small>
+                                        <small id="answer1Help" class="form-text text-muted">This should be the correct answer choice.</small>
 
                                         @error('answers.0.answer')
                                         <small class="text-danger">{{ $message}}</small>
@@ -43,7 +42,7 @@
 
                                 <div>                                   
                                     <div class="form-group">
-                                        <label for="answer1">Choice 2</label>
+                                        <label for="answer2 ">Choice 2</label>
                                         <input name = "answers[][answer]" type="text" class="form-control" 
                                                value="{{ old('answers.1.answer') }}"
                                                id="answer2" aria-describedby="answer2" placeholder="Enter answer choice 2.">
@@ -81,7 +80,21 @@
                                         <small class="text-danger">{{ $message}}</small>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> 
+
+                                <!-- <div>                                   
+                                    <div class="form-group">
+                                        <label for="hint">Hint</label>
+                                        <input name = "answers[][answer]" type="text" class="form-control" 
+                                               value="{{ old('answers.3.answer') }}"
+                                               id="answer4" aria-describedby="answer4" placeholder=" ">
+                                        <small id="hintHelp" class="form-text text-muted">Enter the hint which will help the students answer this question.</small>
+
+                                        @error('question.hint')
+                                        <small class="text-danger">{{ $message}}</small>
+                                        @enderror
+                                    </div>
+                                </div>  -->
 
                             </fieldset>
                         </div>

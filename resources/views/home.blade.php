@@ -35,9 +35,17 @@
                                     </p>
                                 </div>
                             </li>
+                        <div class="card-footer">
+                            <form action="/exams/{{ $exam->id }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Delete Exam</button>
+                            </form>
+                        </div> 
                         @endforeach
                    </ul>                  
                 </div>
+              
             </div> 
         </div>
     </div>

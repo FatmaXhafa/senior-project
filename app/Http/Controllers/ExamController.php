@@ -24,8 +24,8 @@ class ExamController extends Controller
         ]);
 
         // $data['user_id'] = auth()->user()->id;
-
         // $exam = \App\Models\Exam::create($data);
+        
         $exam = auth()->user()->exams()->create($data);
         return redirect('/exams/'.$exam->id);
     }
@@ -35,5 +35,12 @@ class ExamController extends Controller
         $exam->load('questions.answers.responses');
         return view('exam.show', compact('exam'));
     }
-}
 
+    public function destroy(\App\Models\Exam $exam, \App\Models\Question $question, \App\Models\Answer $answer) {
+        
+        $exam->questions()->delete();
+        $exam->delete();
+        
+        return redirect('/home');
+    }
+}
