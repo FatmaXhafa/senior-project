@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -29,6 +30,7 @@
                                 </ul>
                                 <a class='btn btn-outline-secondary' onclick="document.getElementById('hint-{{$question->hints->id}}').style.display='inline'">Show Hint</a>
                                 <div style="display:none; margin-left: 1em" id='hint-{{$question->hints->id}}' >{{$question->hints->hint}}</div>
+                               
                         </div>
                     </div>
                 @endforeach

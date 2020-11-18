@@ -8,15 +8,17 @@
                 <div class="card-header">{{ $exam->title }}</div>
 
                 <div class="card-body">
-                   <a class='btn btn-dark' href="/exams/{{ $exam->id}}/questions/create">Add New Question</a>
-                   <a class='btn btn-dark' href="/assessments/{{ $exam->id}}-{{ Str::slug( $exam->title) }}">Take Exam</a>
+                    <a class='btn btn-dark' href="/exams/{{ $exam->id}}/questions/create">Add New Question</a>
+                    @if ($exam->questions->count() > 0)
+                        <a class='btn btn-dark' href="/assessments/{{ $exam->id}}-{{ Str::slug( $exam->title) }}">Take Exam</a>
+                    @endif
                 </div>
             </div>
 
             @foreach($exam->questions as $question)
             <div class="card mt-4">
                 <div class="card-header">{{ $question->question }}</div>
-                
+
                 <div class="card-body">
                     <ul class="list-group">
                         @foreach($question->answers as $answer)

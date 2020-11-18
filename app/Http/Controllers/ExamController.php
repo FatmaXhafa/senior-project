@@ -20,7 +20,7 @@ class ExamController extends Controller
 
         $data = request()->validate([
             'title'=>'required',
-            'description'=>'required',
+            'description'=>'required|min:30',
         ]);
 
         // $data['user_id'] = auth()->user()->id;

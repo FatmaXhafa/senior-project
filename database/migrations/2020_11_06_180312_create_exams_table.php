@@ -17,7 +17,7 @@ class CreateExamsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->timestamps();        
         });
     }

@@ -29,24 +29,19 @@ class AssessmentController extends Controller
         
         
         $score = 0;
-        foreach ($exam->questions as $key => $question) {   
-                $corrAnswer = $question->answers()->first()->answer;  
-                $answer = Answer::find(request('responses')[0]['answer_id'])->answer;
+        foreach ($exam->questions as $key => $question) {
+            $corrAnswer = $question->answers()->first()->answer;
+            $answer = Answer::find(request('responses')[0]['answer_id'])->answer;
+            $score = $corrAnswer == $answer ? $score + 1 : $score - 0.5;
+        }
 
-                //dd($corrAnswer, $answer);
-                // if it is correct
-                if ($corrAnswer == $answer) { 	// $answer is the one that the user types, the request	 	
-                    $score = $score + 1;                  
-                } 
-                //if it is incorrect	
-                else {			
-                    $score = $score + 0.5;
-                }   
-        }    
+        $result = $exam->assessments()->create([
+            'name' => $data['assessment']['name'],
+            'email' => $data['assessment']['email'],
+            'score' => $score,
+            'exam_id' => $exam->id
+        ]);
         
-        //dd($score);   
-        //$assessment = $exam->assessments()->create($data['score']);  
-        $assessment->scores()->create($data['score']);
-        return $score; //later it can return a view which shows a report: score etc
+        return view('assessment.result')->with('result', $result)->with('exam', $exam);
     }
 }

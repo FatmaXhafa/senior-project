@@ -23,16 +23,16 @@
 
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input name = "description" type="text" class="form-control" id="description" aria-describedby="description" placeholder="Enter a Description">
+                            <textarea name="description" id="description" class="form-control" placeholder="Enter a Description"></textarea>
                             <small id="descriptionHelp" class="form-text text-muted">What is this exam about?</small>
 
                             @error('description')
-                            <small class="text-danger">{{ $message}}</small>
+                                <small class="text-danger">{{ $message}}</small>
                             @enderror
                         </div>
 
                         <button type="submit" class="btn btn-primary">Create Exam</button>
-                    </form>   
+                    </form>
                 </div>
             </div>
         </div>

@@ -16,6 +16,7 @@ class CreateAssessmentsTable extends Migration
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('exam_id');
+            $table->float('score');
             $table->string('name');
             $table->string('email');
             $table->timestamps();
