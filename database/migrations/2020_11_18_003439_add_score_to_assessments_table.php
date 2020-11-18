@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddScoreToExamsTable extends Migration
+class AddScoreToAssessmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class AddScoreToExamsTable extends Migration
      */
     public function up()
     {
-        Schema::table('exams', function (Blueprint $table) {
-            $table->string('score')->nullable();
-        });
-        
-        // Schema::table('exams', function (Blueprint $table) {
-        //      $table->dropColumn('score');
-        // });
+            Schema::table('assessments', function (Blueprint $table) {
+                $table->string('score')->nullable();
+            });
     }
 
     /**
@@ -29,7 +25,7 @@ class AddScoreToExamsTable extends Migration
      */
     public function down()
     {
-        Schema::table('exams', function (Blueprint $table) {
+        Schema::table('assessments', function (Blueprint $table) {
             $table->dropColumn(['score']);
         });
     }

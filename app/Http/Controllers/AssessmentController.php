@@ -11,8 +11,7 @@ use Illuminate\Support\Arr;
 class AssessmentController extends Controller
 {
     public function show(Exam $exam, $slug) {
-        $exam->load('questions.answers'); //loading the relationship, returns a model  
-     //   dd($exam);               
+        $exam->load('questions.answers'); //loading the relationship, returns a model                
         return view('assessment.show', compact('exam'));
     }
 
@@ -45,7 +44,9 @@ class AssessmentController extends Controller
                     $score = $score + 0.5;
                 }   
         }    
-        dd($score);   
-        return 'Thank you!'; //later it can return a view which shows a report: score etc
+        
+        //dd($score);   
+        //$assessment = $exam->assessments()->create($data['score']);
+        return $score; //later it can return a view which shows a report: score etc
     }
 }

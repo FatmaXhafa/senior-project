@@ -17,10 +17,12 @@ class QuestionController extends Controller
         $data = request()->validate([
             'question.question' => 'required',
             'answers.*.answer' => 'required', 
+            'hint.hint' => 'required',
         ]);
         
         $question = $exam->questions()->create($data['question']);
         $question->answers()->createMany($data['answers']);
+        $question->hints()->create($data['hint']);
         
         return redirect('/exams/'.$exam->id);
     }

@@ -81,20 +81,19 @@
                                         @enderror
                                     </div>
                                 </div> 
-
-                                <!-- <div>                                   
+                                  
                                     <div class="form-group">
                                         <label for="hint">Hint</label>
-                                        <input name = "answers[][answer]" type="text" class="form-control" 
-                                               value="{{ old('answers.3.answer') }}"
-                                               id="answer4" aria-describedby="answer4" placeholder=" ">
+                                        <input name = "hint[hint]" type="text" class="form-control" 
+                                               value="{{ old('hint.hint') }}"
+                                               id="hint" aria-describedby="hint" placeholder=" ">
                                         <small id="hintHelp" class="form-text text-muted">Enter the hint which will help the students answer this question.</small>
 
-                                        @error('question.hint')
+                                        @error('hint.hint')
                                         <small class="text-danger">{{ $message}}</small>
                                         @enderror
                                     </div>
-                                </div>  -->
+                                </div>  
 
                             </fieldset>
                         </div>

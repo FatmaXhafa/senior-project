@@ -15,10 +15,15 @@ class Question extends Model
     }
 
     public function answers() {
-        return $this->hasMany(Answer::class); //->inRandomOrder();
+        return $this->hasMany(Answer::class); 
     }
 
     public function responses() {
         return $this->hasMany(AssessmentResponse::class);
     }
+
+    public function hints() {
+        return $this->hasOne(Hint::class);
+    }
+
 }
