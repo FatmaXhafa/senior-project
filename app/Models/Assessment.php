@@ -18,4 +18,8 @@ class Assessment extends Model
     public function responses() {
         return $this->hasMany(AssessmentResponse::class);
     }
+
+    public function scores() {
+        return $this->hasOne(Score::class);
+    }
 }

@@ -25,12 +25,11 @@ class AssessmentController extends Controller
         ]);
         
         $assessment = $exam->assessments()->create($data['assessment']);
-        $assessment->responses()->createMany($data['responses']);
+        $assessment->responses()->createMany($data['responses']);        
+        
         
         $score = 0;
-        foreach ($exam->questions as $key => $question) {
-    
-
+        foreach ($exam->questions as $key => $question) {   
                 $corrAnswer = $question->answers()->first()->answer;  
                 $answer = Answer::find(request('responses')[0]['answer_id'])->answer;
 
@@ -46,7 +45,8 @@ class AssessmentController extends Controller
         }    
         
         //dd($score);   
-        //$assessment = $exam->assessments()->create($data['score']);
+        //$assessment = $exam->assessments()->create($data['score']);  
+        $assessment->scores()->create($data['score']);
         return $score; //later it can return a view which shows a report: score etc
     }
 }
